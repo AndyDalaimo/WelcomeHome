@@ -152,7 +152,7 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 	if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, 
 		ECollisionChannel::ECC_Visibility, Params, FCollisionResponseParams()))
 	{
-		// TEMP/TESTING: Find and list all components attached to actor. If ArtifactData, Retrieve Data and pull UI?
+		// TEMP/TESTING: Find and list all components attached to actor. If ArtifactData, Retrieve Data and pull UI
 		TSet<UActorComponent*> Comps = HitResult.GetActor()->GetComponents(); 
 
 		for (UActorComponent* i : Comps)
@@ -166,8 +166,6 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 				ArtifactInteract((AArtifact*)HitResult.GetActor());
 				return;
 			}
-				
-
 		}
 	}
 
@@ -185,7 +183,11 @@ void APlayerCharacter::ArtifactInteract(AArtifact* Artifact)
 	CurrentArtifactName = StaticCast<FString>(*Artifact->ItemName);
 	CurrentArtifactDescription = StaticCast<FString>(*Artifact->Description);
 
+	// Add Artifact into Player's Inventory. Can be checked in Journal Action
 	PlayerInventory->AddArtifact(Artifact);
+
+	// Destroy Artifact in world
+	Artifact->Destroy();
 
 	// Call ArtifactUIEvent() (Blueprint Function)  which will ShowWidget() in GameInstance class
 	ArtifactUIEvent();
@@ -201,17 +203,17 @@ void APlayerCharacter::ArtifactUIEvent_Implementation()
 }
 
 // Input JournalAction called by Player. 
-// TODO -- Implement Journal UI with BP Function OpenJournal within BP_Player
+// TODO: Created pages within UI that starts with Inventory and can switch to Journal
 void APlayerCharacter::Journal(const FInputActionValue& Value)
 {
+	GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_None);
 	OpenJournal();
 }
 
-// Event triggered in BP_Player When player checks inventory
-// TODO -- To be implemented in Journal. 
+// Event triggered in BP_Player When player checks inventory/journal 
 void APlayerCharacter::OpenJournal_Implementation()
 {
-	PlayerInventory->PrintInventory();
+	// PlayerInventory->PrintInventory();
 }
 
 

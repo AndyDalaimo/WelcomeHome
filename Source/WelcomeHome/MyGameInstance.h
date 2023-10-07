@@ -26,6 +26,13 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ExitArtifactWidget();
 
+	UFUNCTION(BlueprintCallable)
+	void ShowJournalUIWidget();
+
+	UFUNCTION(BlueprintCallable)
+	void ExitJournalUIWidget();
+
 private:
 	TSubclassOf<class UUserWidget> ArtifactUIWidgetClass;
+	TSubclassOf<class UUserWidget> JournalUIWidgetClass;
 };
