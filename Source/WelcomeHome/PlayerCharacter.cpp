@@ -179,6 +179,7 @@ void APlayerCharacter::ArtifactInteract(AArtifact* Artifact)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Artifact Found: %s\n Artifact Name: %s\n Artifact Description: %s\n"), 
 		*Artifact->GetName(), *Artifact->ItemName, *Artifact->Description);
+	
 
 	CurrentArtifactName = StaticCast<FString>(*Artifact->ItemName);
 	CurrentArtifactDescription = StaticCast<FString>(*Artifact->Description);

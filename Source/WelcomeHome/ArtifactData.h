@@ -18,14 +18,14 @@ public:
 
 	FArtifactInfo()
 		: Name("")
-		, Description("")
+		, ItemTexture()
 	{}
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Artifact Info")
 	FString Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Artifact Info")
-	FString Description;
+	UTexture2D* ItemTexture;
 
 	
 };

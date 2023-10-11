@@ -24,8 +24,7 @@ void UPlayerInventory::BeginPlay()
 }
 
 
-// Add artifact into Player Inventory
-// TODO -- Do I want this as a struct, or a Reference of the actual artifact
+// Add referenced artifact (name, description) into Player Inventory
 void UPlayerInventory::AddArtifact(AArtifact* artifact)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Add Artifact Called"));
