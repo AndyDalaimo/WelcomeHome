@@ -42,9 +42,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = ItemDescription, meta = (AllowPrivateAccess = "true"))
 	class UDataTable* ItemDescription;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = ItemDescription, meta = (AllowPrivateAccess = "true"))
-	FString ArtifactName;
-
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

@@ -150,7 +150,7 @@ void APlayerCharacter::Interact(const FInputActionValue& Value)
 	FString ArtifactString = "ArtifactData";
 	
 	if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, 
-		ECollisionChannel::ECC_Visibility, Params, FCollisionResponseParams()))
+		ECollisionChannel::ECC_Visibility, Params, FCollisionResponseParams()) && HitResult.GetActor()->IsValidLowLevel())
 	{
 		// TEMP/TESTING: Find and list all components attached to actor. If ArtifactData, Retrieve Data and pull UI
 		TSet<UActorComponent*> Comps = HitResult.GetActor()->GetComponents(); 
