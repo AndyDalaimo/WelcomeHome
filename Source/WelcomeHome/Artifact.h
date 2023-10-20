@@ -17,6 +17,8 @@ public:
 	// Sets default values for this actor's properties
 	AArtifact();
 
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, category = ArtifactDescription, meta = (AllowPrivateAccess = "true"))
 	FString ItemName;
 
